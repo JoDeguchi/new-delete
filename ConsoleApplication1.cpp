@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-int main()
+void unique()
 {
 	std::unique_ptr<int> unique(std::make_unique<int>(10));
 	std::unique_ptr<int> unique2;
@@ -12,7 +12,38 @@ int main()
 	unique2.swap(unique);
 
 	std::cout << *unique2 << std::endl;
-	
+
+}
+
+class Sample
+{
+public:
+	std::shared_ptr<int> value;
+
+	Sample(): value(std::make_shared<int>(20))
+	{
+
+	}
+};
+
+void shared()
+{
+
+	auto sample = std::make_unique<Sample>();
+	auto value = sample->value;
+
+	std::cout << *sample->value << std::endl;
+
+}
+
+void foo(std::shared_ptr<int> a)
+{
+
+}
+
+int main()
+{
+	shared();
 
 }
 
