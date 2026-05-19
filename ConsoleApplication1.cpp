@@ -3,37 +3,17 @@
 
 #include <iostream>
 
-int* foo()
-{
-	int a = 10;
-	return new int(10);
-}
-
-void foo2(int *p)
-{
-	int b=10;
-
-	std::cout << &b << std::endl;
-	std::cout << b << std::endl;
-
-	*p = 20;
-
-	std::cout << b << std::endl;
-}
-
 
 int main()
 {
+	std::unique_ptr<int> unique(std::make_unique<int>(10));
+	std::unique_ptr<int> unique2;
+
+	unique2.swap(unique);
+
+	std::cout << *unique2 << std::endl;
 	
-	int* p = foo();
-	foo2(p);
 
-
-	std::cout << p << std::endl;
-	std::cout << &p << std::endl;
-
-	
-	delete p;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
