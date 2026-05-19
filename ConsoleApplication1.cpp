@@ -3,13 +3,34 @@
 
 #include <iostream>
 
-int main()
+int* foo()
 {
 	int a = 10;
-	int* p = new int(20);
+	return &a;
+}
 
-	std::cout << &a << std::endl;
+void foo2()
+{
+	int b;
+
+	std::cout << &b << std::endl;
+}
+
+
+int main()
+{
+	/*char b = 0;
+	char c = 0;
+	int a = 10;*/
+	int* p = foo();
+	foo2();
+
+	
+	/*std::cout << &a << std::endl;
+	std::cout << (int *) & b << std::endl;
+	std::cout << (int*)&c << std::endl;*/
 	std::cout << p << std::endl;
+	std::cout << &p << std::endl;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
